@@ -31,6 +31,7 @@
 <script>
 import AddObject from '@/components/AddObject';
 import changeObject from '@/components/ChangeObject';
+import request from '@/lib/wp';
 export default {
 	name: 'App',
 	components: {
@@ -38,24 +39,19 @@ export default {
 	},
 	data() {
 		return {
-			posts: [
-				{id:1,name:"первый",typeId:"тело", done:false},
-				{id:2,name:"второй",typeId:"тело", done:false},
-				{id:3,name:"третий",typeId:"тело", done:false},
-				{id:4,name:"Четвертый",typeId:"тело", done:false},
-				{id:5,name:"пятый",typeId:"тело", done:false},
-			],
+			posts: [],
 			index: 0,
 			numberId: 0,
 			visible: false,
 
 		}
 	},
-	// async mounted() {
-	// 	const res = await fetch('https://jsonplaceholder.typicode.com/posts?_limit=8');
-	// 	const posts = await res.json();
-	// 	this.posts = {...posts,done:false};
-	// },
+	async mounted() {
+		this.posts = await request('http://127.0.0.1:80/api/things');
+		// const res = await fetch("http://127.0.0.1:80/api/things");
+		// const posts = await res.json();
+		// this.posts = posts;
+	},
 	methods:{
 		getId(id) {
 			this.numberId = id;
