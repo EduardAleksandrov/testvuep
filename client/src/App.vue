@@ -90,7 +90,6 @@ export default {
 .rightBox {
 	background: #ccdaea;
 	width: 60%;
-
 }
 .wrapper {
 	display:flex;
@@ -112,9 +111,10 @@ export default {
 
 }
 .jsonData {
-	margin-left:30%;
-	margin-top:30%;
+	margin-left: 20%;
+	margin-top: 20%;
 	text-align: left;
+	position: fixed;
 }
 .AddObject {
 	margin-bottom: 20px;

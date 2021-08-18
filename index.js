@@ -10,20 +10,48 @@ const PORT = process.env.PORT || 3000;
 const HOST = process.env.HOST_HOME  || 'localhost';
 
 let POSTS = [
-	{id:v4(),name:"первый",typeId:"тело", done:false},
-	{id:v4(),name:"второй",typeId:"тело", done:false},
-	{id:v4(),name:"третий",typeId:"тело", done:false},
-	{id:v4(),name:"Четвертый",typeId:"тело", done:false},
-	{id:v4(),name:"пятый",typeId:"тело", done:false}
+	{id:v4(),name:"первый",typeId:1, done:false},
+	{id:v4(),name:"второй",typeId:2, done:false},
+	{id:v4(),name:"третий",typeId:3, done:false},
+	{id:v4(),name:"Четвертый",typeId:4, done:false},
+	{id:v4(),name:"пятый",typeId:5, done:false}
 ]
 
-app.use(express.json())
+app.use(express.json());
+//CORS
+app.use(function (req, res, next) {
+	// Website you wish to allow to connect
+	res.setHeader('Access-Control-Allow-Origin', 'http://localhost:8080');
+
+	// Request methods you wish to allow
+	res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
+
+	// Request headers you wish to allow
+	res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
+
+	// Set to true if you need the website to include cookies in the requests sent
+	// to the API (e.g. in case you use sessions)
+	res.setHeader('Access-Control-Allow-Credentials', true);
+
+	// Pass to next layer of middleware
+	next();
+});
 
 //GET
 app.get('/api/things', (req, res) => {
-	res.setHeader("Access-Control-Allow-Origin","http://localhost:8080"); //заголовок ответа
+	//res.setHeader("Access-Control-Allow-Origin","http://localhost:8080"); //заголовок ответа
 	res.status((200)).json(POSTS);
 })
+//POST
+app.post('/api/things', (req, res) => {
+	// res.setHeader("Access-Control-Allow-Origin","http://localhost:8080");
+	// res.setHeader("Access-Control-Allow-Methods",["GET","POST"]);
+	// res.setHeader("Vary", "Origin");
+	const post = {...req.body, id: v4(), done:false};
+	POSTS.push(post);
+	res.status(201).json(post);
+})
+
 
 //app.use(express.static(path.resolve(__dirname,'client')))
 

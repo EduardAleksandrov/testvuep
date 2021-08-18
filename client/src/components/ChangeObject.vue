@@ -1,8 +1,8 @@
 <template>
 	<form v-on:submit.prevent="onSubmit">
-		<input type="text" v-model="title" placeholder="Title">
-		<input type="text" v-model="body" placeholder="Body">
-		<button type="submit">Change</button>
+		<input type="text" v-model="form.name" placeholder="Name">
+		<input type="text" v-model="form.typeId" placeholder="TypeId">
+		<button type="submit">Изменить</button>
 	</form>
 </template>
 
@@ -10,12 +10,14 @@
 export default {
 	name: "ChangeObject",
 	props:{
-		num: Number
+		num: String
 	},
 	data(){
 		return{
-			title:'',
-			body:''
+			form: {
+				name: '',
+				typeId: ''
+			}
 		}
 	},
 	methods:{

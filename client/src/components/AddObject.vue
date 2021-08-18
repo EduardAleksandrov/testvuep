@@ -1,20 +1,33 @@
 <template>
 	<form v-on:submit.prevent="onSubmit">
-		<input type="text" v-model="title" placeholder="Title">
-		<input type="text" v-model="body" placeholder="Body">
-		<button type="submit">Create</button>
+		<input type="text" v-model="form.name" placeholder="Name (Обязательно для заполнения)">
+		<input type="text" v-model="form.typeId" placeholder="TypeId">
+		<button type="submit">Создать</button>
 	</form>
 </template>
 
 <script>
 export default {
 	name: "addObject",
-	data(){
-		return{
-			title:'',
-			body:''
+	data() {
+		return {
+			form: {
+				name: '',
+				typeId: ''
+			}
 		}
 	},
+	methods: {
+		onSubmit() {
+			if (this.form.name){
+				const {...post} = this.form;
+				this.$store.dispatch("addPosts", post);
+				this.form.name = this.form.typeId = '';
+			} else {
+				this.form.name = this.form.typeId = '';
+			}
+		}
+	}
 }
 </script>
 
