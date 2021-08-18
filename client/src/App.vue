@@ -3,12 +3,13 @@
 		<div class="wrapper">
 			<div class="leftBox">
 				<div class="innerWrapper">
+					<h1 class="title">Нажмите на запись, чтобы посмотреть свойства.</h1>
 					<addObject class="AddObject" />
 					<button v-on:click="visible=!visible">Изменить</button>
 					<div class="post" v-for="(post, index) in allPosts" :key="post.id"
 						 v-on:click="getId(post.id, allPosts)"
 						 :class="{'strike': post.done}">
-						<h2>Пост №{{ index + 1 }}</h2>
+						<h2>Запись №{{ index + 1 }}</h2>
 						<changeObject v-if="visible" v-bind:num="post.id" />
 					</div>
 
@@ -18,8 +19,8 @@
 				<div v-for="post in allPosts" :key="post.id" v-if="post.id == numberId" >
 					<p class="jsonData">
 						{<br>"User ID": {{ post.id }}<br>
-						"User title": {{ post.name }}<br>
-						"User body": {{ post.typeId }}<br>
+						"User name": {{ post.name }}<br>
+						"User typeId": {{ post.typeId }}<br>
 						}
 					</p>
 				</div>
@@ -111,10 +112,11 @@ export default {
 
 }
 .jsonData {
-	margin-left: 20%;
+	margin-left: 15%;
 	margin-top: 20%;
 	text-align: left;
 	position: fixed;
+	font-size: 24px;
 }
 .AddObject {
 	margin-bottom: 20px;
@@ -124,5 +126,8 @@ button {
 }
 .strike {
 	background: crimson;
+}
+.title {
+	margin-bottom: 20px;
 }
 </style>

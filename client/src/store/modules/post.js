@@ -9,7 +9,11 @@ export default {
 			const p = await request('http://127.0.0.1:80/api/things', 'POST', post);
 			//ctx.commit('addPosts', p);
 			await ctx.dispatch("fetchPosts");
-		}
+		},
+		async changePosts(ctx, post) {
+			const s = await request(`http://127.0.0.1:80/api/things/${post.id}`, 'PUT', post);
+			await ctx.dispatch("fetchPosts");
+		},
 	},
 	mutations: {
 		updatePosts(state, posts){

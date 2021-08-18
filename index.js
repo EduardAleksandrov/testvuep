@@ -21,7 +21,7 @@ app.use(express.json());
 //CORS
 app.use(function (req, res, next) {
 	// Website you wish to allow to connect
-	res.setHeader('Access-Control-Allow-Origin', 'http://localhost:8080');
+	res.setHeader('Access-Control-Allow-Origin', process.env.API_URL);
 
 	// Request methods you wish to allow
 	res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
@@ -51,7 +51,12 @@ app.post('/api/things', (req, res) => {
 	POSTS.push(post);
 	res.status(201).json(post);
 })
-
+//PUT
+app.put('/api/things/:id', (req, res) => {
+	const idx = POSTS.findIndex(c => c.id === req.params.id)
+	POSTS[idx] = {...req.body, id: v4()};
+	res.json(POSTS[idx])
+})
 
 //app.use(express.static(path.resolve(__dirname,'client')))
 
