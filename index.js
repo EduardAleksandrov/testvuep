@@ -10,11 +10,11 @@ const PORT = process.env.PORT || 3000;
 const HOST = process.env.HOST_HOME  || 'localhost';
 
 let POSTS = [
-	{id:1,name:"первый",typeId:"тело", done:false},
-	{id:2,name:"второй",typeId:"тело", done:false},
-	{id:3,name:"третий",typeId:"тело", done:false},
-	{id:4,name:"Четвертый",typeId:"тело", done:false},
-	{id:5,name:"пятый",typeId:"тело", done:false}
+	{id:v4(),name:"первый",typeId:"тело", done:false},
+	{id:v4(),name:"второй",typeId:"тело", done:false},
+	{id:v4(),name:"третий",typeId:"тело", done:false},
+	{id:v4(),name:"Четвертый",typeId:"тело", done:false},
+	{id:v4(),name:"пятый",typeId:"тело", done:false}
 ]
 
 app.use(express.json())

@@ -5,8 +5,8 @@
 				<div class="innerWrapper">
 					<addObject class="AddObject" />
 					<button v-on:click="visible=!visible">Изменить</button>
-					<div class="post" v-for="(post, index) in posts" :key="post.id"
-						 v-on:click="getId(post.id)"
+					<div class="post" v-for="(post, index) in allPosts" :key="post.id"
+						 v-on:click="getId(post.id, allPosts)"
 						 :class="{'strike': post.done}">
 						<h2>Пост №{{ index + 1 }}</h2>
 						<changeObject v-if="visible" v-bind:num="post.id" />
@@ -15,7 +15,7 @@
 				</div>
 			</div>
 			<div class="rightBox">
-				<div v-for="post in posts" :key="post.id" v-if="post.id == numberId" >
+				<div v-for="post in allPosts" :key="post.id" v-if="post.id == numberId" >
 					<p class="jsonData">
 						{<br>"User ID": {{ post.id }}<br>
 						"User title": {{ post.name }}<br>
@@ -31,7 +31,9 @@
 <script>
 import AddObject from '@/components/AddObject';
 import changeObject from '@/components/ChangeObject';
-import request from '@/lib/wp';
+//import request from '@/lib/wp';
+import {mapGetters} from 'vuex';
+
 export default {
 	name: 'App',
 	components: {
@@ -39,23 +41,26 @@ export default {
 	},
 	data() {
 		return {
-			posts: [],
+			//posts: [],
 			index: 0,
 			numberId: 0,
 			visible: false,
-
 		}
 	},
+	computed:{
+		...mapGetters(['allPosts']),
+	},
 	async mounted() {
-		this.posts = await request('http://127.0.0.1:80/api/things');
+		//this.posts = await request('http://127.0.0.1:80/api/things');
 		// const res = await fetch("http://127.0.0.1:80/api/things");
 		// const posts = await res.json();
 		// this.posts = posts;
+		await this.$store.dispatch("fetchPosts");
 	},
 	methods:{
-		getId(id) {
+		getId(id, allPosts) {
 			this.numberId = id;
-			for (let i of this.posts) {
+			for (let i of allPosts) {
 				if (i.id == id) {
 					i.done = true;
 				} else {
