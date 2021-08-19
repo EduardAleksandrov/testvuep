@@ -1,7 +1,7 @@
 [![HTML Version](https://img.shields.io/badge/HTML5-f06529)]()
 [![CSS3 Version](https://img.shields.io/badge/CSS3-2965f1)]()
 [![Javascript Version](https://img.shields.io/badge/JS-f0db4f)]()
-[![Node Version](https://img.shields.io/badge/node-10.23.1-blue)]()
+[![Node Version](https://img.shields.io/badge/Node-10.23.1-blue)]()
 [![Express Version](https://img.shields.io/badge/Express-066da5)]()
 [![Vue Version](https://img.shields.io/badge/Vue.js-2-CC2336)]()
 [![Vuex Version](https://img.shields.io/badge/Vuex-CC2336)]()
