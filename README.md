@@ -1,31 +1,55 @@
-# goodwan-test
+[![HTML Version](https://img.shields.io/badge/HTML5-f06529)]()
+[![CSS3 Version](https://img.shields.io/badge/CSS3-2965f1)]()
+[![Javascript Version](https://img.shields.io/badge/JS-f0db4f)]()
+[![Node Version](https://img.shields.io/badge/node-10.23.1-blue)]()
+[![Express Version](https://img.shields.io/badge/Express-066da5)]()
+[![Vue Version](https://img.shields.io/badge/Vue.js-2-CC2336)]()
+[![Vuex Version](https://img.shields.io/badge/Vuex-CC2336)]()
 
-## Project setup
-```
-npm install
-```
+---
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+# Test
 
-### Compiles and minifies for production
-```
-npm run build
-```
+### Инструкция запуска проекта
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
 ```
-версия node 10.23.1
-установка npm install в папке проекта и в папке clients
-создать .env файл из .env.default
-указать порт запущеного vue сервера в .env API_URL если он не 8080
-если в env файле порт PORT отличный от 80 то поменять порты в файле post.js
-node, express, vue, vuex
+Версия node: 10.23.1.
+- установка npm install в папке проекта и в папке client;
+- создать .env файл из .env.default в папке проекта;
+- указать порт запущеного vue сервера в .env (API_URL), если он не 8080;
+- если в .env файле порт (PORT) отличный от 80, то поменять порты в файле post.js.
 В папке проекта запускаем сервер (npm run start).
 В другом терминале в папке client запускаем vue (npm run serve) и открываем проект.
 
 ```
+### Описание задачи
 
+```
+Предметная область:
+Страница разбита на две части: слева списком все объекты, 
+с подсвеченным текущим, справа свойства текущего объекта.
+Объект имеет id, имя и тип. Текущий объект можно отредактировать, 
+изменив имя и/или тип.
+
+Реализация:
+При запуске vue приложения получить с сервера все объекты, 
+и сложить их в vuex хранилище.
+Реализовать список объектов с возможностью выбора текущего объекта, 
+выбранный объект должен быть визуально выделен.
+Реализовать форму редактирования свойств текущего выбранного объекта
+и отправку изменений на сервер.
+
+API:
+GET /api/things - все объекты.
+POST /api/things/ - создать новый объект. 
+В случае успеха возвращается созданный объект со всеми заполненными полями, 
+включая присвоенный на сервере id.
+PUT /api/things/ - обновить объект. В случае успеха возвращается обновленный объект.
+
+Формат объекта:
+{
+  "id": 10,
+  "name": "Name",
+  "typeId": 2
+}
+```
