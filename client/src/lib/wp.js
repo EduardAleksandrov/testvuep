@@ -10,7 +10,7 @@ export default async function request (url, method = 'GET', data = null){
 			method, headers, body
 		});
 		return await response.json();
-	} catch (e){
+	} catch (e) {
 		console.warn('Error: ', e.message);
 	}
 }

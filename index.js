@@ -1,4 +1,6 @@
 const express = require ('express');
+const multer  = require('multer') // multipart/form-data
+const upload = multer({ dest: 'uploads/' }) // multipart/form-data
 const path = require('path');
 const {v4} = require('uuid');
 const dotenv = require('dotenv');
@@ -7,7 +9,7 @@ const app = express();
 dotenv.config();
 
 const PORT = process.env.PORT || 3000;
-const HOST = process.env.HOST_HOME  || 'localhost';
+const HOST = '192.168.2.176' || 'localhost';
 
 let POSTS = [
 	{id:v4(),name:"первый",typeId:1, done:false},
@@ -37,17 +39,28 @@ app.use(function (req, res, next) {
 	next();
 });
 
+app.get("/about", function(request, response){
+    response.send("<h1>О сайте</h1>");
+});
+
 //GET
 app.get('/api/things', (req, res) => {
 	//res.setHeader("Access-Control-Allow-Origin","http://localhost:8080"); //заголовок ответа
 	res.status((200)).json(POSTS);
 })
 //POST
-app.post('/api/things', (req, res) => {
+app.post('/api/things', upload.none(), (req, res) => {  // multipart/form-data
 	// res.setHeader("Access-Control-Allow-Origin","http://localhost:8080");
 	// res.setHeader("Access-Control-Allow-Methods",["GET","POST"]);
 	// res.setHeader("Vary", "Origin");
 	const post = {...req.body, id: v4(), done:false};
+	console.log(req.body);
+	POSTS.push(post);
+	res.status(201).json(post);
+})
+app.post('/api/things', (req, res) => {  // application/json
+	const post = {...req.body, id: v4(), done:false};
+	console.log(req.body);
 	POSTS.push(post);
 	res.status(201).json(post);
 })
@@ -60,8 +73,12 @@ app.put('/api/things/:id', (req, res) => {
 
 //app.use(express.static(path.resolve(__dirname,'client')))
 
-app.listen(PORT, HOST,() => {
-	console.log(`Server has been started on port ${PORT} and host ${HOST}...`);
+// app.listen(PORT, HOST,() => {
+// 	console.log(`Server has been started on port ${PORT} and host ${HOST}...`);
+// });
+
+app.listen(PORT, 'localhost',() => {
+	console.log(`Server has been started on port ${PORT} and host localhost...`);
 });
 
 
