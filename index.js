@@ -1,6 +1,7 @@
 const express = require ('express');
 const multer  = require('multer') // multipart/form-data
 const upload = multer({ dest: 'uploads/' }) // multipart/form-data
+const cookieParser = require('cookie-parser')
 const path = require('path');
 const {v4} = require('uuid');
 const dotenv = require('dotenv');
@@ -20,6 +21,7 @@ let POSTS = [
 ]
 
 app.use(express.json());
+app.use(cookieParser());
 //CORS
 app.use(function (req, res, next) {
 	// Website you wish to allow to connect
@@ -46,8 +48,11 @@ app.get("/about", function(request, response){
 //GET
 app.get('/api/things', (req, res) => {
 	//res.setHeader("Access-Control-Allow-Origin","http://localhost:8080"); //заголовок ответа
+	console.log('Cookies: ', req.cookies);
+	console.log('Signed Cookies: ', req.signedCookies);
 	res.status((200)).json(POSTS);
 })
+
 //POST
 app.post('/api/things', upload.none(), (req, res) => {  // multipart/form-data
 	// res.setHeader("Access-Control-Allow-Origin","http://localhost:8080");
@@ -66,9 +71,9 @@ app.post('/api/things', (req, res) => {  // application/json
 })
 //PUT
 app.put('/api/things/:id', (req, res) => {
-	const idx = POSTS.findIndex(c => c.id === req.params.id)
+	const idx = POSTS.findIndex(c => c.id === req.params.id);
 	POSTS[idx] = {...req.body, id: v4()};
-	res.json(POSTS[idx])
+	res.json(POSTS[idx]);
 })
 
 //app.use(express.static(path.resolve(__dirname,'client')))
