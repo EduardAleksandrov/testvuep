@@ -1,6 +1,6 @@
 const express = require ('express');
 const multer  = require('multer') // multipart/form-data
-const upload = multer({ dest: 'uploads/' }) // multipart/form-data
+// const upload = multer({ dest: 'uploads/' }) // multipart/form-data
 const cookieParser = require('cookie-parser')
 const path = require('path');
 const {v4} = require('uuid');
@@ -20,7 +20,29 @@ let POSTS = [
 	{id:v4(),name:"пятый",typeId:5, done:false}
 ]
 
-app.use(express.json());
+// загрузка файлов
+let storage = multer.diskStorage({
+	destination: function (req, file, cb) {
+	  cb(null, 'uploads/')
+	},
+	filename: function (req, file, cb) {
+	  cb(null, file.fieldname + '-' + Date.now() + '.png')
+	}
+});
+
+// фильтрация
+const fileFilter = (req, file, cb) => {
+    if (file.mimetype === "image/png" || file.mimetype === "image/jpg"|| file.mimetype === "image/jpeg") {
+        cb(null, true);
+    } else {
+        cb(null, false);
+    }
+}
+
+let upload = multer({ storage: storage, fileFilter: fileFilter });
+// ------
+
+app.use('/api/things', express.json());
 app.use(cookieParser());
 //CORS
 app.use(function (req, res, next) {
@@ -52,6 +74,10 @@ app.get('/api/things', (req, res) => {
 	console.log('Signed Cookies: ', req.signedCookies);
 	res.status((200)).json(POSTS);
 })
+app.get('/api/query', (req, res) => {
+	console.log(req.query.text);
+	res.status((200)).json({status: "ok"});
+})
 
 //POST
 app.post('/api/things', upload.none(), (req, res) => {  // multipart/form-data
@@ -62,6 +88,18 @@ app.post('/api/things', upload.none(), (req, res) => {  // multipart/form-data
 	console.log(req.body);
 	POSTS.push(post);
 	res.status(201).json(post);
+})
+// загрузка файла
+app.post('/api/profile', upload.single('avatar'), function (req, res, next) {
+	// req.files.filename = 'one.png'
+	console.log(req.file);
+	res.status(201).json({status: "ok"});
+})
+// загрузка текста
+app.use('/api/text', express.text());
+app.post('/api/text', function (req, res, next) {
+	console.log(req.body);
+	res.status(201).json({status: "getted"});
 })
 app.post('/api/things', (req, res) => {  // application/json
 	const post = {...req.body, id: v4(), done:false};
