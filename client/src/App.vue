@@ -16,11 +16,19 @@
 				</div>
 			</div>
 			<div class="rightBox">
-				<div v-for="post in allPosts" :key="post.id" v-if="post.id == numberId" >
+				<div v-for="post in allPosts" :key="post.id" v-show="post.id == numberId" >
 					<p class="jsonData">
 						{<br>"User ID": {{ post.id }}<br>
 						"User name": {{ post.name }}<br>
 						"User typeId": {{ post.typeId }}<br>
+						}
+					</p>
+				</div>
+				<div>
+					<p class="jsonDataPlus" v-if="!!filtersIt">
+						{<br>"User ID": {{ filtersIt.id }}<br>
+						"User name": {{ filtersIt.name }}<br>
+						"User typeId": {{ filtersIt.typeId }}<br>
 						}
 					</p>
 				</div>
@@ -50,6 +58,15 @@ export default {
 	},
 	computed:{
 		...mapGetters(['allPosts']),
+		filtersIt() {
+			let item = this.allPosts.filter(i => i.id == this.numberId);
+			if (item[0] == undefined) {
+				return false
+			} else {
+				return item[0];
+			}
+			
+		}
 	},
 	async mounted() {
 		//this.posts = await request('http://127.0.0.1:80/api/things');
@@ -114,6 +131,13 @@ export default {
 .jsonData {
 	margin-left: 15%;
 	margin-top: 20%;
+	text-align: left;
+	position: fixed;
+	font-size: 24px;
+}
+.jsonDataPlus {
+	margin-left: 15%;
+	margin-top: 40%;
 	text-align: left;
 	position: fixed;
 	font-size: 24px;

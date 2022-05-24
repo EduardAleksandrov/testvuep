@@ -47,7 +47,7 @@ app.use(cookieParser());
 //CORS
 app.use(function (req, res, next) {
 	// Website you wish to allow to connect
-	res.setHeader('Access-Control-Allow-Origin', process.env.API_URL);
+	res.setHeader('Access-Control-Allow-Origin', "*");
 
 	// Request methods you wish to allow
 	res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
@@ -123,7 +123,6 @@ app.put('/api/things/:id', (req, res) => {
 app.listen(PORT, 'localhost',() => {
 	console.log(`Server has been started on port ${PORT} and host localhost...`);
 });
-
 
 
 
