@@ -1,5 +1,6 @@
 /* -------------- */
-/* Webfont: Lato-Black */@font-face {
+/* Webfont: Lato-Black */
+@font-face {
     font-family: 'Lato';
     src: url('../fonts/Lato-Black.eot'); /* IE9 Compat Modes */
     src: url('../fonts/Lato-Black.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
@@ -11,7 +12,8 @@
     text-rendering: optimizeLegibility;
 }
 
-/* Webfont: Lato-BlackItalic */@font-face {
+/* Webfont: Lato-BlackItalic */
+@font-face {
     font-family: 'Lato';
     src: url('../fonts/Lato-BlackItalic.eot'); /* IE9 Compat Modes */
     src: url('../fonts/Lato-BlackItalic.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
@@ -23,7 +25,8 @@
     text-rendering: optimizeLegibility;
 }
 
-/* Webfont: Lato-Bold */@font-face {
+/* Webfont: Lato-Bold */
+@font-face {
     font-family: 'Lato';
     src: url('../fonts/Lato-Bold.eot'); /* IE9 Compat Modes */
     src: url('../fonts/Lato-Bold.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
@@ -35,7 +38,8 @@
     text-rendering: optimizeLegibility;
 }
 
-/* Webfont: Lato-BoldItalic */@font-face {
+/* Webfont: Lato-BoldItalic */
+@font-face {
     font-family: 'Lato';
     src: url('../fonts/Lato-BoldItalic.eot'); /* IE9 Compat Modes */
     src: url('../fonts/Lato-BoldItalic.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
@@ -47,7 +51,8 @@
     text-rendering: optimizeLegibility;
 }
 
-/* Webfont: Lato-Hairline */@font-face {
+/* Webfont: Lato-Hairline */
+@font-face {
     font-family: 'Lato';
     src: url('../fonts/Lato-Hairline.eot'); /* IE9 Compat Modes */
     src: url('../fonts/Lato-Hairline.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
@@ -59,7 +64,8 @@
     text-rendering: optimizeLegibility;
 }
 
-/* Webfont: Lato-HairlineItalic */@font-face {
+/* Webfont: Lato-HairlineItalic */
+@font-face {
     font-family: 'Lato';
     src: url('../fonts/Lato-HairlineItalic.eot'); /* IE9 Compat Modes */
     src: url('../fonts/Lato-HairlineItalic.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
@@ -71,7 +77,8 @@
     text-rendering: optimizeLegibility;
 }
 
-/* Webfont: Lato-Heavy */@font-face {
+/* Webfont: Lato-Heavy */
+@font-face {
     font-family: 'Lato';
     src: url('../fonts/Lato-Heavy.eot'); /* IE9 Compat Modes */
     src: url('../fonts/Lato-Heavy.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
@@ -83,7 +90,8 @@
     text-rendering: optimizeLegibility;
 }
 
-/* Webfont: Lato-HeavyItalic */@font-face {
+/* Webfont: Lato-HeavyItalic */
+@font-face {
     font-family: 'Lato';
     src: url('../fonts/Lato-HeavyItalic.eot'); /* IE9 Compat Modes */
     src: url('../fonts/Lato-HeavyItalic.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
@@ -107,7 +115,8 @@
     text-rendering: optimizeLegibility;
 }
 
-/* Webfont: Lato-Light */@font-face {
+/* Webfont: Lato-Light */
+@font-face {
     font-family: 'Lato';
     src: url('../fonts/Lato-Light.eot'); /* IE9 Compat Modes */
     src: url('../fonts/Lato-Light.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
@@ -119,7 +128,8 @@
     text-rendering: optimizeLegibility;
 }
 
-/* Webfont: Lato-LightItalic */@font-face {
+/* Webfont: Lato-LightItalic */
+@font-face {
     font-family: 'Lato';
     src: url('../fonts/Lato-LightItalic.eot'); /* IE9 Compat Modes */
     src: url('../fonts/Lato-LightItalic.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
@@ -131,7 +141,8 @@
     text-rendering: optimizeLegibility;
 }
 
-/* Webfont: Lato-Medium */@font-face {
+/* Webfont: Lato-Medium */
+@font-face {
     font-family: 'Lato';
     src: url('../fonts/Lato-Medium.eot'); /* IE9 Compat Modes */
     src: url('../fonts/Lato-Medium.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
@@ -143,7 +154,8 @@
     text-rendering: optimizeLegibility;
 }
 
-/* Webfont: Lato-MediumItalic */@font-face {
+/* Webfont: Lato-MediumItalic */
+@font-face {
     font-family: 'Lato';
     src: url('../fonts/Lato-MediumItalic.eot'); /* IE9 Compat Modes */
     src: url('../fonts/Lato-MediumItalic.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
@@ -155,7 +167,8 @@
     text-rendering: optimizeLegibility;
 }
 
-/* Webfont: Lato-Regular */@font-face {
+/* Webfont: Lato-Regular */
+@font-face {
     font-family: 'Lato';
     src: url('../fonts/Lato-Regular.eot'); /* IE9 Compat Modes */
     src: url('../fonts/Lato-Regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
@@ -167,7 +180,8 @@
     text-rendering: optimizeLegibility;
 }
 
-/* Webfont: Lato-Semibold */@font-face {
+/* Webfont: Lato-Semibold */
+@font-face {
     font-family: 'LatoWebSemibold';
     src: url('../fonts/Lato-Semibold.eot'); /* IE9 Compat Modes */
     src: url('../fonts/Lato-Semibold.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
@@ -179,8 +193,9 @@
     text-rendering: optimizeLegibility;
 }
 
-/* Webfont: Lato-SemiboldItalic */@font-face {
-    font-family: 'LatoWebSemibold';
+/* Webfont: Lato-SemiboldItalic */
+@font-face {
+    font-family: 'Lato';
     src: url('../fonts/Lato-SemiboldItalic.eot'); /* IE9 Compat Modes */
     src: url('../fonts/Lato-SemiboldItalic.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
          url('../fonts/Lato-SemiboldItalic.woff2') format('woff2'), /* Modern Browsers */
@@ -191,8 +206,9 @@
     text-rendering: optimizeLegibility;
 }
 
-/* Webfont: Lato-Thin */@font-face {
-    font-family: 'LatoWebThin';
+/* Webfont: Lato-Thin */
+@font-face {
+    font-family: 'Lato';
     src: url('../fonts/Lato-Thin.eot'); /* IE9 Compat Modes */
     src: url('../fonts/Lato-Thin.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
          url('../fonts/Lato-Thin.woff2') format('woff2'), /* Modern Browsers */
@@ -203,8 +219,9 @@
     text-rendering: optimizeLegibility;
 }
 
-/* Webfont: Lato-ThinItalic */@font-face {
-    font-family: 'LatoWebThin';
+/* Webfont: Lato-ThinItalic */
+@font-face {
+    font-family: 'Lato';
     src: url('../fonts/Lato-ThinItalic.eot'); /* IE9 Compat Modes */
     src: url('../fonts/Lato-ThinItalic.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
          url('../fonts/Lato-ThinItalic.woff2') format('woff2'), /* Modern Browsers */
