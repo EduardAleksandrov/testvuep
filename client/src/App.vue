@@ -3,7 +3,7 @@
 		<div class="wrapper">
 			<div class="leftBox">
 				<div class="innerWrapper">
-					<h1 class="title">Нажмите на запись, чтобы посмотреть свойства.</h1>
+					<h1 class="title">Нажмите на запись, чтобы посмотреть свойства. Push this to change smt.</h1>
 					<addObject class="AddObject" />
 					<button v-on:click="visible=!visible">Изменить</button>
 					<div class="post" v-for="(post, index) in allPosts" :key="post.id"
@@ -74,6 +74,9 @@ export default {
 		// const posts = await res.json();
 		// this.posts = posts;
 		await this.$store.dispatch("fetchPosts");
+		document.fonts.ready.then(function() {
+			console.log('loaded');
+		});
 	},
 	methods:{
 		getId(id, allPosts) {
@@ -92,15 +95,16 @@ export default {
 </script>
 
 <style lang="scss">
+@import 'assets/styles/reset.scss';
+@import 'assets/styles/fontstyles/fonts.css';
 #app {
-	font-family: Avenir, Helvetica, Arial, sans-serif;
+	font-family: 'Lato', 'Avenir', Helvetica, Arial, sans-serif;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 	text-align: center;
 	color: #2c3e50;
 	margin-top: 0px;
 }
-@import 'assets/styles/reset.scss';
 .leftBox {
 	background: #acf5f5;
 	width: 40%;
