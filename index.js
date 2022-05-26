@@ -6,6 +6,7 @@ const path = require('path');
 const {v4} = require('uuid');
 const dotenv = require('dotenv');
 const app = express();
+const fs = require('fs')
 
 dotenv.config();
 
@@ -64,7 +65,13 @@ app.use(function (req, res, next) {
 });
 
 app.get("/about", function(request, response){
-    response.send("<h1>О сайте</h1>");
+    fs.appendFile('./static/hello.txt', '\nПривет!', function (error) {
+		if (error) throw error // если возникла ошибка
+		console.log('Запись файла завершена. Содержимое файла:')
+		let data = fs.readFileSync('./static/hello.txt', 'utf8')
+		console.log(data) // выводим считанные данные
+	})
+	response.send("<h1>О сайте</h1>");
 });
 
 //GET
