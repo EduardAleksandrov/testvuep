@@ -121,7 +121,7 @@ app.put('/api/things/:id', (req, res) => {
 	res.json(POSTS[idx]);
 })
 
-//app.use(express.static(path.resolve(__dirname,'client')))
+app.use(express.static(path.resolve(__dirname,'static')));
 
 // app.listen(PORT, HOST,() => {
 // 	console.log(`Server has been started on port ${PORT} and host ${HOST}...`);
