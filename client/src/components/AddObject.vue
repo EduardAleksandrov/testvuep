@@ -1,7 +1,7 @@
 <template>
 	<form v-on:submit.prevent="onSubmit">
 		<input type="text" v-model="form.name" placeholder="Name (Обязательно для заполнения)">
-		<input type="text" v-model="form.typeId" placeholder="TypeId">
+		<input :type="form.name === 'text' ? 'text' : 'number'" v-model="form.typeId" placeholder="TypeId">
 		<button type="submit">Создать</button>
 	</form>
 </template>
