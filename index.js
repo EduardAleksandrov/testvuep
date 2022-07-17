@@ -4,6 +4,25 @@ const {v4} = require('uuid');
 const dotenv = require('dotenv');
 const app = express();
 
+//redis connection start
+var redis = require('redis'),
+db = redis.createClient();
+db.connect();
+db.select(1);
+
+db.on('connect', function() {
+	console.log('Connected!');
+});
+
+db.set('frameworks', 'ReactJSS');
+
+// db.select(1, function(err,res){
+// 	db.set('key', 'string'); 
+// });
+
+//redis connection end
+
+
 dotenv.config();
 
 const PORT = process.env.PORT || 3000;
