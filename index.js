@@ -41,7 +41,7 @@ mongoClient.connect(function(err, client){
         }
         // Закрываем подключение
         client.close();
-        console.log("Подключение закрыто");
+        console.log("Подключение mongo закрыто");
     });
 });
    //set data
@@ -67,19 +67,25 @@ mongoClient_v2.connect(function(err, client){
 const mysql = require("mysql2");
   
 const connection = mysql.createConnection({
-  host: "localhost",
-  user: "user",
-  database: "dbase",
-  password: "password"
+	host: "localhost",
+	user: "user",	
+	database: "dbase",
+	password: "password"
 });
- connection.connect(function(err){
+connection.connect(function(err){
     if (err) {
-      return console.error("Ошибка: " + err.message);
+		return console.error("Ошибка: " + err.message);
     }
     else{
-      console.log("Подключение к серверу MySQL успешно установлено");
+		console.log("Подключение к серверу MySQL успешно установлено");
     }
- });
+});
+connection.end(function(err) {
+	if (err) {
+		return console.log("Ошибка: " + err.message);
+	}
+	console.log("Подключение MySQL закрыто");
+});
 // mysql end
 
 dotenv.config();
