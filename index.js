@@ -22,6 +22,65 @@ db.set('frameworks', 'ReactJSS');
 
 //redis connection end
 
+// mongo start 	
+const MongoClient = require("mongodb").MongoClient;
+    
+const url = "mongodb://root:example@localhost:27017/";
+const mongoClient = new MongoClient(url);
+  
+// Подключаемся к серверу
+mongoClient.connect(function(err, client){
+       
+    // обращаемся к базе данных admin
+    const db = client.db("one-test");
+     
+    db.command({ping: 1}, function(err, result){
+        if(!err){
+            console.log("Подключение с сервером mongo успешно установлено");
+            console.log(result);
+        }
+        // Закрываем подключение
+        client.close();
+        console.log("Подключение закрыто");
+    });
+});
+   //set data
+const mongoClient_v2 = new MongoClient(url);
+mongoClient_v2.connect(function(err, client){
+      
+    const db = client.db("one-test");
+    const collection = db.collection("delete_me");
+    let user = {name: "Tom", age: 23};
+    collection.insertOne(user, function(err, result){
+          
+        if(err){ 
+            return console.log(err);
+        }
+        console.log(result);
+        console.log(user);
+		client.close();
+    });
+});
+// mongo end
+
+// mysql start
+const mysql = require("mysql2");
+  
+const connection = mysql.createConnection({
+  host: "localhost",
+  user: "user",
+  database: "dbase",
+  password: "password"
+});
+ connection.connect(function(err){
+    if (err) {
+      return console.error("Ошибка: " + err.message);
+    }
+    else{
+      console.log("Подключение к серверу MySQL успешно установлено");
+    }
+ });
+// mysql end
 
 dotenv.config();
 
