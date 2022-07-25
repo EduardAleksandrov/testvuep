@@ -93,6 +93,8 @@ dotenv.config();
 const PORT = process.env.PORT || 3000;
 const HOST = process.env.HOST_HOME  || 'localhost';
 
+console.log("enviroment variable global" ,process.env.SSH_PATH);
+
 let POSTS = [
 	{id:v4(),name:"первый",typeId:1, done:false},
 	{id:v4(),name:"второй",typeId:2, done:false},
